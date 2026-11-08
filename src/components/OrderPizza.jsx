@@ -83,42 +83,52 @@ export default function OrderPizza({ setLastOrder }) {
         orderPayload
       );
 
+      // Backend'den dönen sipariş özetini konsola yazdırıyoruz:
+      console.log("Sipariş Özeti (API Yanıtı):", response.data);
+
       if (setLastOrder) {
         setLastOrder(response.data);
       }
       navigate("/success");
     } catch (error) {
-      console.warn("Reqres servisi yanıt vermedi, yerel veriyle devam ediliyor:", error);
+      console.warn("Reqres yanıt vermedi, yerel sipariş konsola yazdırılıyor:", error);
       
-      // Reqres API çökse veya hata verse bile siparişi başarılı kabul edip Success sayfasına aktarır:
+      // API yanıt vermese bile kullanıcının girdiği siparişi konsola basar:
+      console.log("Sipariş Özeti (Payload):", orderPayload);
+
       if (setLastOrder) {
         setLastOrder(orderPayload);
       }
       navigate("/success");
+    
     } finally {
       setIsSubmitting(false);
     }
   };
-  return (
-    <div className="ilksection">
-      {/* Kırmızı Üst Banner Alanı */}
-      <div className="mydiv">
-        <div className="baslik_kapsayici">
-          <div className="ilkbaslik">
-            <img
-              src="/assets/iteration-1/logo.svg"
-              alt="Teknolojik Yemekler Logo"
-              className="myimg_1"
-            />
-          </div>
-          <div className="altbaslik_1">
-            <span style={{ color: "#FAF7F2", fontSize: "1rem" }}>
-              Anasayfa - <strong>Sipariş Oluştur</strong>
-            </span>
-          </div>
+return (
+  <div className="ilksection">
+    {/* Üst Kırmızı Header ve Navigasyon */}
+    <header className="mydiv">
+      <div className="baslik_kapsayici">
+        {/* Logo */}
+        <div className="ilkbaslik">
+          <img
+            src="/images/iteration-1-images/logo.svg"
+            alt="Teknolojik Yemekler"
+            className="myimg_1"
+          />
+        </div>
+
+        {/* Anasayfa - Sipariş Oluştur Yolu */}
+        <div className="altbaslik_1">
+           <span>Anasayfa - Seçenekler - <strong>Sipariş Oluştur</strong>
+          </span>
         </div>
       </div>
+    </header>
 
+    {/* Sipariş Form Alanı (ikinci_pano) buradan devam eder... */}
+    <main id="ikinci_pano"></main>
       {/* Sipariş Form Alanı */}
       <form id="ikinci_pano" onSubmit={handleSubmit}>
         <div className="fiyat_panosu">

@@ -6,14 +6,16 @@ export default function Home() {
 
   return (
     <div className="home-container">
+      {/* Üst Logo */}
       <header className="home-header">
         <img
-          src="/assets/iteration-1-images/logo.svg"
+          src="/images/iteration-1-images/logo.svg"
           alt="Teknolojik Yemekler"
           className="home-logo"
         />
       </header>
 
+      {/* Başlık ve Buton */}
       <main className="home-hero">
         <h1 className="home-title">
           KOD ACIKTIRIR<br />PİZZA, DOYURUR
@@ -27,9 +29,10 @@ export default function Home() {
         </button>
       </main>
 
+      {/* Alttaki Pizza Görseli */}
       <div className="home-pizza-wrapper">
         <img
-          src="/assets/iteration-1-images/home-banner.png"
+          src="/images/iteration-1-images/home-banner.png"
           alt="Pizza Banner"
           className="home-pizza-img"
         />
