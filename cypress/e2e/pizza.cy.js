@@ -14,16 +14,36 @@ describe("Teknolojik Yemekler - Pizza Sipariş Testleri", () => {
   });
 
   // 2. Test: Birden fazla malzeme (checkbox) seçilebilmesi
-  it("En az 4, en fazla 10 adet malzeme seçilebilmeli", () => {
-    cy.get('input[type="checkbox"]').check(
-      ["Pepperoni", "Tavuk Izgara", "Mısır", "Ananas"],
-      { force: true }
-    );
+  // 2. Test: Birden fazla malzeme seçilebilmesi ve maksimum 10 malzeme sınırının korunması
+  it("En az 4, en fazla 10 adet malzeme seçilebilmeli (11. malzeme seçilememeli)", () => {
+    const onMalzeme = [
+      "Pepperoni",
+      "Sosis",
+      "Kanada Jambonu",
+      "Tavuk Izgara",
+      "Soğan",
+      "Domates",
+      "Mısır",
+      "Sucuk",
+      "Jalepeno",
+      "Sarımsak"
+    ];
 
-    cy.get('input[type="checkbox"][value="Pepperoni"]').should("be.checked");
-    cy.get('input[type="checkbox"][value="Tavuk Izgara"]').should("be.checked");
-    cy.get('input[type="checkbox"][value="Mısır"]').should("be.checked");
-    cy.get('input[type="checkbox"][value="Ananas"]').should("be.checked");
+    // 1. Önce tam 10 adet malzemeyi seçiyoruz
+    cy.get('input[type="checkbox"]').check(onMalzeme, { force: true });
+
+    // Seçilen 10 malzemenin gerçekten işaretlendiğini (toplam işaretli sayısının 10 olduğunu) doğrula
+    cy.get('input[type="checkbox"]:checked').should("have.length", 10);
+
+    // 2. Şimdi 11. malzemeyi ("Ananas") seçmeye çalışıyoruz
+    // Not: Controlled input'ta React'in engellediğini görmek için .click() kullanıyoruz
+    cy.get('input[type="checkbox"][value="Ananas"]').click({ force: true });
+
+    // 3. DOĞRULAMA: 11. malzeme ("Ananas") İŞARETLENMEMİŞ olmalı!
+    cy.get('input[type="checkbox"][value="Ananas"]').should("not.be.checked");
+
+    // Ve toplam işaretli kutucuk sayısı hâlâ 10 kalmalı
+    cy.get('input[type="checkbox"]:checked').should("have.length", 10);
   });
 
   // 3. Test: Formun eksiksiz doldurulup başarıyla gönderilmesi (Submit)
