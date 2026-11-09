@@ -10,12 +10,17 @@
 /* ==========================================
    1. SIFIRLAMA & TEMEL AYARLAR
    ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Quattrocento:wght@700&family=Roboto+Condensed:wght@300;400;700&family=Satisfy&display=swap');
+
+/* ==========================================
+   1. SIFIRLAMA & TEMEL AYARLAR
+   ========================================== */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
 :root {
-  font-family: 'Barlow', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Barlow', system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: #292929;
@@ -31,7 +36,6 @@ html, body {
   overflow-x: hidden;
 }
 
-/* App.css içindeki max-width: 1280px ve padding kısıtlamasını tamamen kaldırır */
 #root {
   width: 100% !important;
   max-width: none !important;
@@ -42,23 +46,22 @@ html, body {
 }
 
 /* ==========================================
-   2. HOME (ANASAYFA) ALANI
+   2. HOME (ANASAYFA) HERO & VITRIN ALANI
    ========================================== */
 .home-container {
   background-color: #CE2829;
-  min-height: 100vh;
+  min-height: 92vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   overflow: hidden;
-  margin: 0;
-  padding: 0 1rem; /* Dar ekranlarda yazıların kenara yapışmasını önler */
+  padding: 0 1rem;
 }
 
 .home-header {
-  margin-top: 3.5rem;
+  margin-top: 3rem;
   z-index: 10;
 }
 
@@ -73,9 +76,16 @@ html, body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   z-index: 10;
   width: 100%;
+}
+
+.home-cursive {
+  font-family: 'Satisfy', cursive;
+  color: #FDC913;
+  font-size: 2rem;
+  margin: 0 0 0.25rem 0;
 }
 
 .home-title {
@@ -83,10 +93,9 @@ html, body {
   color: #FFFFFF !important;
   font-size: 4.2rem;
   font-weight: 300;
-  line-height: 1.15;
+  line-height: 1.12;
   letter-spacing: 1.5px;
-  margin: 0 0 2rem 0;
-  max-width: 100%;
+  margin: 0 0 1.75rem 0;
 }
 
 .home-btn {
@@ -96,16 +105,14 @@ html, body {
   font-family: 'Barlow', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
-  padding: 0.75rem 2.5rem;
+  padding: 0.85rem 2.8rem;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .home-btn:hover {
-  transform: scale(1.06);
+  transform: scale(1.05);
   background-color: #f7bf00;
 }
 
@@ -128,30 +135,273 @@ html, body {
   object-position: bottom center;
 }
 
-/* ==========================================
-   3. SİPARİŞ FORMU ÜST KIRMIZI ŞERİT
-   ========================================== */
-.ilksection {
+/* Üst Kategori İkon Şeridi */
+.top-categories-bar {
+  background-color: #FFFFFF;
   width: 100%;
-  margin: 0;
+  padding: 1.25rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.top-categories-list {
+  max-width: 1060px;
+  margin: 0 auto;
   padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.top-category-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #292929;
+  cursor: pointer;
+}
+
+.top-category-item img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+/* Kampanya Kartları (CTA) */
+.home-main-section {
+  max-width: 1060px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 4.5rem;
+}
+
+.cta-card {
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-large {
+  min-height: 440px;
+  background-color: #CE2829;
+  color: #FFFFFF;
+}
+
+.cta-large h2 {
+  font-family: 'Quattrocento', serif;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin: 0 0 1rem 0;
+}
+
+.cta-large p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0 0 1.5rem 0;
+}
+
+.cta-right-col {
   display: flex;
   flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cta-small-dark, .cta-small-light {
+  flex: 1;
+  min-height: 210px;
+}
+
+.cta-small-dark {
+  background-color: #292929;
+  color: #FFFFFF;
+}
+
+.cta-small-light {
+  background-color: #FFEECC;
+  color: #292929;
+}
+
+.cta-right-col h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 1.25rem 0;
+}
+
+.red-text {
+  color: #CE2829;
+}
+
+.cta-order-btn {
+  background-color: #FFFFFF;
+  color: #CE2829;
+  border: none;
+  border-radius: 50px;
+  padding: 0.7rem 1.6rem;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.cta-order-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Menü Vitrin & Pill Butonlar */
+.menu-showcase-section {
+  text-align: center;
+}
+
+.showcase-cursive {
+  font-family: 'Satisfy', cursive;
+  color: #CE2829;
+  font-size: 1.85rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.showcase-title {
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: #292929;
+  margin: 0 0 2rem 0;
+}
+
+.pill-categories {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.pill-btn {
+  background-color: #FFFFFF;
+  color: #292929;
+  border: none;
+  border-radius: 50px;
+  padding: 0.75rem 1.4rem;
+  display: flex;
   align-items: center;
+  gap: 0.65rem;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-btn img {
+  width: 32px;
+  height: 32px;
+}
+
+.pill-btn.active, .pill-btn:hover {
+  background-color: #292929;
+  color: #FFFFFF;
+}
+
+/* 3'lü Ürün Kartları */
+.product-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.product-card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 1.75rem;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.product-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+  color: #292929;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #5F5F5F;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.product-price {
+  color: #292929;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* ==========================================
+   3. SİPARİŞ FORMU ÜST & VITRIN ALANI (IT2)
+   ========================================== */
+.order-page-wrapper {
+  background-color: #FFFFFF;
+}
+
+.ilksection {
+  width: 100%;
 }
 
 .mydiv {
   width: 100%;
   background-color: #CE2829;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3rem 1rem 1.8rem 1rem; /* Sağ-sol 16px (1rem) güvenli boşluk */
+  padding: 2.2rem 1rem;
 }
 
-.baslik_kapsayici {
+.myimg_1 {
+  height: 2.6rem;
+  width: auto;
+  display: block;
+}
+
+/* Bej Ürün Açıklama Bandı */
+.order-hero-beige {
+  background-color: #FAF7F2;
   width: 100%;
+  padding: 0 1rem 2.5rem 1rem;
+}
+
+.order-hero-container {
   max-width: 532px;
   margin: 0 auto;
   display: flex;
@@ -159,282 +409,289 @@ html, body {
   align-items: center;
 }
 
-.ilkbaslik {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
+.form-banner-img {
   width: 100%;
-}
-
-.myimg_1 {
-  height: 2.8rem;
-  width: auto;
+  max-width: 480px;
+  height: auto;
   display: block;
-  max-width: 100%;
+  margin-bottom: 2rem;
 }
 
 .altbaslik_1 {
   width: 100%;
   text-align: left;
-  font-family: 'Barlow', sans-serif;
   font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  color: #5F5F5F;
 }
 
-.altbaslik_1 span {
-  color: #FAF7F2;
+.altbaslik_1 a {
+  color: #5F5F5F;
+  text-decoration: none;
 }
 
 .altbaslik_1 strong {
-  color: #FFFFFF;
-  font-weight: 700;
-}
-
-/* ==========================================
-   4. SİPARİŞ FORMU GÖVDE ALANI
-   ========================================== */
-#ikinci_pano {
-  margin-top: 2.5rem;
-  margin-left: auto;
-  margin-right: auto;
-  height: auto;
-  max-width: 532px;
-  width: 100%;
-  margin-bottom: 6rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0 1rem; /* 375px ekranlarda kenara yapışmayı önleyen 16px iç boşluk */
+  color: #CE2829;
+  font-weight: 600;
 }
 
 .fiyat_panosu {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
   width: 100%;
 }
 
 #baslik_3 {
-  max-width: 100%;
-  font-family: 'Barlow', sans-serif; 
   font-weight: 600;
   font-size: 1.375rem;
-  line-height: 1.34;
   color: #292929;
   margin: 0;
 }
 
+.fiyat-rating-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+
 #fiyat_1 {
   font-size: 1.75rem;
-  line-height: 2.34rem;
-  font-weight: bold;
+  font-weight: 700;
   color: #292929;
-  white-space: nowrap;
-  margin-top: 0.875rem;
-  margin-bottom: 0.5rem;
+}
+
+.rating-info {
+  display: flex;
+  gap: 2.5rem;
+  color: #5F5F5F;
+  font-size: 0.95rem;
 }
 
 .paragraph_1 {
-  width: 100%; /* Sabit min-width yerine esnek tam genişlik */
-  font-family: 'Barlow', sans-serif;
+  width: 100%;
   font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.65;
   color: #5F5F5F;
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
-  overflow-wrap: break-word; /* Uzun kelimelerin ekranı taşırmasını önler */
+  margin: 0;
+}
+
+/* ==========================================
+   4. SİPARİŞ FORMU GÖVDE & ÖZEL INPUTLAR (IT2)
+   ========================================== */
+#ikinci_pano {
+  max-width: 532px;
+  width: 100%;
+  margin: 2.5rem auto 5rem auto;
+  padding: 0 1rem;
+}
+
+#icpano_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
 }
 
 .menu_1 {
   width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 1.5rem;
-  margin-bottom: 2rem;
 }
 
-.radio_1 {
-  display: flex;
-  flex-direction: column;
-  gap: 0.625rem;
-}
-
-#buttonbaslik_1 {
+#buttonbaslik_1, #buttonbaslik_2, #ekmalzeme, .siparis {
   margin: 0 0 1rem 0;
-  font-family: 'Barlow', sans-serif;
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: #292929;
+  display: block;
 }
 
 .ustyildiz {
   color: #CE2829;
 }
 
-.dr {
+/* Özel Yuvarlak Boyut (S, M, L) Butonları */
+.size-pills-group {
   display: flex;
-  font-size: 1rem;
-  font-weight: 500;
-  font-family: 'Barlow', sans-serif;
-  color: #5F5F5F;
-  gap: 0.25rem;
+  gap: 1rem;
 }
 
-.d_r {
+.size-pill-label {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #FAF7F2;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  font-weight: 600;
+  color: #5F5F5F;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.size-pill-label input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.size-pill-label.selected {
+  background-color: #FFEECC;
+  color: #292929;
+  box-shadow: 0 0 0 2px #FDC913;
+}
+
+.size-pill-label:focus-within {
+  outline: 2px solid #292929;
+}
+
+/* Özel Hamur Select */
+.custom-dough-select {
+  background-color: #FAF7F2;
+  border: none;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #5F5F5F;
+  min-width: 210px;
   cursor: pointer;
 }
 
-.optionbox {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-
-#buttonbaslik_2 {
-  margin: 0 0 1rem 0;
-  font-family: 'Barlow', sans-serif;
-  font-weight: 600;
-  font-size: 1.25rem;
-  color: #292929;
-}
-
-#icpano_1 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.5rem;
-  width: 100%; /* min-width kaldırıldı, tamamen esnek */
-  margin-top: 1rem;
-}
-
-.ekpano {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-}
-
-#ekmalzeme {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 600;
-  font-size: 1.25rem;
-  color: #292929;
-  margin-bottom: 0.25rem;
-}
-
-.paragrafdiv {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.2rem;
-} 
-
+/* Özel Sarı Checkbox'lar */
 #paragraph_2 {
-  font-family: "Barlow", sans-serif;
-  font-weight: 500;
-  font-size: 1rem;
   color: #5F5F5F;
-  margin: 0;
+  margin: 0 0 1.5rem 0;
 }
 
 .checkbox-formu {
   display: grid;
-  gap: 1rem 0.5rem;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem 0.75rem;
   width: 100%;
 }
 
-.checkbox_menu {
+.custom-checkbox-wrapper {
   display: flex;
-  gap: 0.5rem;
   align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.custom-checkbox-wrapper input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.custom-checkmark {
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  background-color: #FAF7F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #292929;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease;
+}
+
+.custom-checkbox-wrapper input:checked ~ .custom-checkmark {
+  background-color: #FDC913;
+}
+
+.custom-checkbox-wrapper input:focus-visible ~ .custom-checkmark {
+  outline: 2px solid #292929;
 }
 
 .mylabel {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.95rem;
   color: #5F5F5F;
-  cursor: pointer;
-  line-height: 1.3;
 }
 
-.menu_5 {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-top: 1.5rem;
-}
-
-.siparis {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 600;
-  font-size: 1.25rem;
-  color: #292929;
-  margin-bottom: 0.5rem;
-}
-
-/* hem input hem textarea ile kusursuz çalışacak şekilde güncellendi */
+/* Input ve Textarea */
 .not_kutusu {
-  margin-top: 0.5rem;
-  display: block;
-  min-height: 3.5rem;
   width: 100%;
-  border: 0.0625rem solid #D9D9D9;
-  border-radius: 0.375rem;
-  padding: 0.75rem 1rem;
+  min-height: 3.5rem;
+  background-color: #FAF7F2;
+  border: none;
+  border-radius: 6px;
+  padding: 0.9rem 1.1rem;
   font-family: 'Barlow', sans-serif;
   font-size: 0.95rem;
-  background-color: #FFFFFF;
   color: #292929;
   resize: vertical;
 }
 
+.validation-warning {
+  color: #CE2829;
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+  display: block;
+}
+
+.form-divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #D9D9D9;
+  margin: 0.5rem 0;
+}
+
+.network-error-alert {
+  width: 100%;
+  background-color: #FFE5E5;
+  color: #CE2829;
+  border: 1px solid #CE2829;
+  padding: 0.85rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
 /* ==========================================
-   5. SAYAÇ & SİPARİŞ ÖZETİ
+   5. SAYAÇ & SİPARİŞ ÖZETİ KUTUSU
    ========================================== */
 .toplam_menusu {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
-  width: 100%;
   align-items: flex-start;
-  margin-top: 2.5rem;
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .arttirma_sayaci {
   display: flex;
-  align-items: stretch;
-  min-width: 10.625rem;
-  max-width: 10.625rem;
-  height: 3.56rem;
-  border: 0.0625rem solid #D9D9D9;
-  border-radius: 0.375rem;
+  min-width: 10.5rem;
+  height: 3.5rem;
+  background-color: #FAF7F2;
+  border-radius: 6px;
   overflow: hidden;
 }
 
 #birinci_sayac, #ikinci_sayac {
   flex: 1;
-  background-color: #FDC913;
+  background-color: #FAF7F2;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  user-select: none;
 }
 
-#birinci_sayac {
-  border-right: 0.0625rem solid #D9D9D9;
-}
-
-#ikinci_sayac {
-  border-left: 0.0625rem solid #D9D9D9;
+#birinci_sayac:hover, #ikinci_sayac:hover {
+  background-color: #FDC913;
 }
 
 #ara_sayac {
@@ -442,87 +699,70 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #FAF7F2;
+  border-left: 1px solid #E5E5E5;
+  border-right: 1px solid #E5E5E5;
 }
 
 .syc {
-  font-family: 'Barlow', sans-serif;
-  color: #000000;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 700;
+  color: #292929;
 }
 
 .sag_menu {
-  display: flex;
-  flex-direction: column;
-  max-width: 22rem;
-  width: 100%;
-  border-radius: 0.375rem;
-  border: 0.0625rem solid #D9D9D9;
+  flex: 1;
   background-color: #FAF7F2;
+  border-radius: 6px;
   overflow: hidden;
 }
 
 .sag_toplam {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+  padding: 2rem;
 }
 
 #siparis_toplam {
   margin: 0 0 1.25rem 0;
-  font-family: "Barlow", sans-serif;
+  font-size: 1.2rem;
   font-weight: 600;
-  font-size: 1.25rem;
-  color: #292929;
 }
 
 .mykutu_3, .toplam_d {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 0.75rem;
 }
 
 #secim_kutusu_2, .secim_fiyat {
-  font-family: "Barlow", sans-serif;
-  font-weight: 600;
-  font-size: 1.125rem;
   color: #5F5F5F;
+  font-weight: 600;
   margin: 0;
 }
 
 #toplam_kutusu_3, .toplam_fiyati {
-  font-family: "Barlow", sans-serif;
-  font-weight: 700;
-  font-size: 1.125rem;
   color: #CE2829;
+  font-weight: 700;
   margin: 0;
 }
 
 #siparis_butonu {
   width: 100%;
   padding: 1.1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #FDC913;
   border: none;
-  font-family: "Barlow", sans-serif;
+  font-family: 'Barlow', sans-serif;
   font-weight: 700;
-  font-size: 1.125rem;
+  font-size: 1.05rem;
   color: #292929;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
-#siparis_butonu:hover {
-  background-color: #f7bf00;
+#siparis_butonu:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
 }
 
 /* ==========================================
-   6. SUCCESS (ONAY) EKRANI
+   6. SUCCESS (SİPARİŞ ONAYI) EKRANI (IT2)
    ========================================== */
 #son_div {
   display: flex;
@@ -531,66 +771,196 @@ html, body {
   background-color: #CE2829;
   min-height: 100vh;
   width: 100%;
-  margin: 0;
-  padding: 0 1rem; /* Dar ekranlarda taşmayı önler */
+  padding: 0 1rem 4rem 1rem;
+  color: #FFFFFF;
 }
 
 .sonyazi_1 {
-  margin-top: 4.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 3.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .sonyazi_1 img {
   height: 2.8rem;
-  width: auto;
-  display: block;
-  max-width: 100%;
 }
 
-#son_paragraf {
+.success-content {
+  max-width: 520px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  flex: 1;
-  margin-bottom: 6rem;
   text-align: center;
-  width: 100%;
+}
+
+.success-subtitle {
+  font-family: 'Satisfy', cursive;
+  color: #FDC913;
+  font-size: 2rem;
+  margin: 0 0 0.25rem 0;
 }
 
 .sonyazi_2 {
   font-family: 'Roboto Condensed', sans-serif !important;
   font-weight: 300;
-  font-size: 4.5rem;
-  line-height: 1.15;
-  letter-spacing: 2px;
+  font-size: 4.2rem;
+  line-height: 1.1;
   color: #FFFFFF !important;
-  text-align: center;
   margin: 0;
 }
 
+.success-divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  margin: 2rem 0;
+}
+
+.success-pizza-name {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 0 0 2rem 0;
+}
+
+.success-details {
+  text-align: left;
+  width: 240px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.success-details p {
+  margin: 0.35rem 0;
+}
+
+.success-summary-box {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  padding: 2rem 2.5rem;
+  width: 280px;
+  text-align: left;
+}
+
+.success-summary-box h3 {
+  margin: 0 0 1.2rem 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+
 /* ==========================================
-   7. MOBİL UYUMLULUK (768px ve 480px Altı)
+   7. ORTAK FOOTER (IT2)
+   ========================================== */
+.it2-footer {
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+  width: 100%;
+  padding-top: 4rem;
+}
+
+.footer-container {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 1rem 3rem 1rem;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.2fr;
+  gap: 2.5rem;
+}
+
+.footer-logo {
+  height: 4.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.footer-contact {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.95rem;
+  color: #D9D9D9;
+}
+
+.contact-item img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.footer-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: #D9D9D9;
+  font-size: 0.95rem;
+}
+
+.footer-insta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.footer-insta-grid img {
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333333;
+  padding: 1.5rem 1rem;
+}
+
+.footer-bottom-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #999999;
+  font-size: 0.85rem;
+}
+
+/* ==========================================
+   8. MOBİL UYUMLULUK (768px ve 420px Altı)
    ========================================== */
 @media (max-width: 768px) {
-  .home-title {
+  .home-title, .sonyazi_2 {
     font-size: 2.6rem;
   }
 
-  .home-header {
-    margin-top: 2rem;
-  }
-
-  .home-pizza-wrapper {
-    bottom: -5vw;
-    max-width: 95%;
+  .cta-grid, .product-cards-grid, .footer-container {
+    grid-template-columns: 1fr;
   }
 
   .checkbox-formu {
     grid-template-columns: repeat(2, 1fr);
-    row-gap: 1.1rem;
+  }
+
+  .menu_1 {
+    flex-direction: column;
   }
 
   .toplam_menusu {
@@ -598,49 +968,17 @@ html, body {
     align-items: stretch;
   }
 
-  .sag_menu {
-    max-width: 100%;
-  }
-
-  .sag_toplam {
-    padding: 1.5rem; /* Mobilde özet kutusunun iç boşluğunu rahatlatır */
-  }
-
-  .menu_1 {
-    flex-wrap: wrap; /* Küçük ekranlarda sıkışırsa alt satıra esner */
-    gap: 1.5rem;
-  }
-
   .arttirma_sayaci {
-    margin-top: 1rem;
-    min-width: 100%; /* Mobilde sayaç tam genişlik olup butonla hizalanır */
-    max-width: 100%;
-  }
-
-  #baslik_3 {
-    font-size: 1.2rem;
-  }
-
-  .sonyazi_2 {
-    font-size: 2.75rem;
-  }
-
-  .sonyazi_1 {
-    margin-top: 3rem;
+    width: 100%;
   }
 }
 
-/* 375px - 390px gibi çok dar ekranlar için ekstra güvence */
 @media (max-width: 420px) {
-  .home-title {
+  .home-title, .sonyazi_2 {
     font-size: 2.2rem;
   }
 
   .mylabel {
-    font-size: 0.875rem; /* Uzun malzeme isimlerinin taşmasını önler */
-  }
-
-  .sonyazi_2 {
-    font-size: 2.2rem;
+    font-size: 0.85rem;
   }
 }
