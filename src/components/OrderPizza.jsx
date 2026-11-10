@@ -79,10 +79,14 @@ export default function OrderPizza({ setLastOrder }) {
 
     try {
       const response = await axios.post(
-        "https://reqres.in/api/pizza",
-        orderPayload
-      );
-
+  "https://reqres.in/api/pizza",
+  orderPayload,
+  {
+    headers: {
+      "x-api-key": "reqres-free-v1"
+    }
+  }
+);
       // Backend'den dönen sipariş özetini konsola yazdırıyoruz:
       console.log("Sipariş Özeti (API Yanıtı):", response.data);
 
